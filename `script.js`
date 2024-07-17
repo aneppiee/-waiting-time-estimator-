@@ -1,0 +1,21 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('estimator-form');
+    const input = document.getElementById('input-variable');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const inputValue = parseFloat(input.value);
+
+        // Example: linear model coefficients (replace with your own model)
+        const a = 2.5;
+        const b = 5;
+
+        if (!isNaN(inputValue)) {
+            const estimatedWaitingTime = a * inputValue + b;
+            result.textContent = `Estimated Waiting Time: ${estimatedWaitingTime.toFixed(2)} minutes`;
+        } else {
+            result.textContent = 'Please enter a valid number.';
+        }
+    });
+});
